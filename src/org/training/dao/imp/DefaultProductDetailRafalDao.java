@@ -11,6 +11,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Component;
 import org.training.dao.ProductDetailRafalDao;
 
 
@@ -18,10 +19,11 @@ import org.training.dao.ProductDetailRafalDao;
  * @author tyszewr
  *
  */
+@Component(value = "productDetailDao")
 public class DefaultProductDetailRafalDao implements ProductDetailRafalDao
 {
 	@Resource
-	private FlexibleSearchService fs;
+	private FlexibleSearchService flexibleSearchService;
 
 	/*
 	 * (non-Javadoc)
@@ -33,25 +35,25 @@ public class DefaultProductDetailRafalDao implements ProductDetailRafalDao
 	{
 
 		final String queryString = new String("select {PK} from {Product}");
-		final SearchResult<ProductModel> sr = fs.search(queryString);
+		final SearchResult<ProductModel> sr = getFlexibleSearchService().search(queryString);
 		return sr.getResult();
 	}
 
 	/**
-	 * @return the fs
+	 * @return the flexibleSearchService
 	 */
-	public FlexibleSearchService getFs()
+	public FlexibleSearchService getFlexibleSearchService()
 	{
-		return fs;
+		return flexibleSearchService;
 	}
 
 	/**
-	 * @param fs
-	 *           the fs to set
+	 * @param flexibleSearchService the flexibleSearchService to set
 	 */
-	public void setFs(final FlexibleSearchService fs)
+	public void setFlexibleSearchService(FlexibleSearchService flexibleSearchService)
 	{
-		this.fs = fs;
+		this.flexibleSearchService = flexibleSearchService;
 	}
+
 
 }
