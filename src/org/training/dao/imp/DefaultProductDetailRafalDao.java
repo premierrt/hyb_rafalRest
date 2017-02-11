@@ -5,8 +5,11 @@ package org.training.dao.imp;
 
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
+import de.hybris.platform.servicelayer.search.SearchResult;
 
 import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.training.dao.ProductDetailRafalDao;
 
@@ -17,7 +20,7 @@ import org.training.dao.ProductDetailRafalDao;
  */
 public class DefaultProductDetailRafalDao implements ProductDetailRafalDao
 {
-
+	@Resource
 	private FlexibleSearchService fs;
 
 	/*
@@ -29,9 +32,9 @@ public class DefaultProductDetailRafalDao implements ProductDetailRafalDao
 	public List<ProductModel> getProductDetails()
 	{
 
-
-
-		return null;
+		final String queryString = new String("select {PK} from {Product}");
+		final SearchResult<ProductModel> sr = fs.search(queryString);
+		return sr.getResult();
 	}
 
 	/**
@@ -43,9 +46,10 @@ public class DefaultProductDetailRafalDao implements ProductDetailRafalDao
 	}
 
 	/**
-	 * @param fs the fs to set
+	 * @param fs
+	 *           the fs to set
 	 */
-	public void setFs(FlexibleSearchService fs)
+	public void setFs(final FlexibleSearchService fs)
 	{
 		this.fs = fs;
 	}
