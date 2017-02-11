@@ -80,6 +80,10 @@
 	       <aop:pointcut id="profiledMethods" expression="execution(* *(..))" />	
 	  -->
 	
-			
+		
+		
+		<bean id="defaultProductDetailService" class="org.training.imp.DefaultProductDetailRafalService">
+			<property name="productDetailDao" ref="org.training.dao.ProductDetailRafalDao"></property>
+		</bean>	
 			
 </beans>
