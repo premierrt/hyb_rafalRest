@@ -5,6 +5,8 @@ package org.training;
 
 import de.hybris.platform.core.model.product.ProductModel;
 
+import java.util.List;
+
 
 /**
  * @author tyszewr
@@ -12,5 +14,5 @@ import de.hybris.platform.core.model.product.ProductModel;
  */
 public interface ProductDetailRafalService
 {
-	ProductModel getProductDetails();
+	List<ProductModel> getProductDetails();
 }
