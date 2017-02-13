@@ -1,5 +1,7 @@
+--zrobic branch na testy i na mvc
 
 
 --najpierw wystawiæ wszystkie produktu
 -- pozniej dodac produkty z normalnymi nazwami i opisami
 --pozniej dodac ceny - zrobic Converter i Populatory.
+--dodac cronjoba
