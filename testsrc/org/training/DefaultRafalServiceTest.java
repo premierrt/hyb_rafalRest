@@ -10,6 +10,7 @@ import de.hybris.platform.servicelayer.ServicelayerTransactionalTest;
 import de.hybris.platform.servicelayer.model.ModelService;
 
 import java.util.List;
+import java.util.Locale;
 
 import javax.annotation.Resource;
 
@@ -39,7 +40,7 @@ public class DefaultRafalServiceTest extends ServicelayerTransactionalTest
 	public void setUp()
 	{
 		productModel = new ProductModel();
-		productModel.setDescription("to jest nowy produkt describtion");
+		productModel.setDescription("duap opia", Locale.ENGLISH);
 
 	}
 
