@@ -87,7 +87,7 @@
 	  -->
 	
 		
-		
+		<alias name="defaultProductDetailService" alias="rafalProductDetailService"/>
 		<bean id="defaultProductDetailService" class="org.training.imp.DefaultProductDetailRafalService">
 			<property name="productDetailDao" ref="productDetailDao"></property>
 		</bean>	
