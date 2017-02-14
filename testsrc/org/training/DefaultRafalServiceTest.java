@@ -41,6 +41,9 @@ public class DefaultRafalServiceTest extends ServicelayerTransactionalTest
 	{
 		productModel = new ProductModel();
 		productModel.setDescription("duap opia", Locale.ENGLISH);
+		//productModel.setCatalogVersion();
+
+		//wybrac z bazs
 
 	}
 

@@ -1,1 +1,7 @@
 /classes/
+
+*target*
+*.jar
+*.war
+*.ear
+*.class
