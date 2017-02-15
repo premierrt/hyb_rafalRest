@@ -3,6 +3,7 @@
  */
 package org.training.dao.imp;
 
+import de.hybris.platform.catalog.CatalogVersionService;
 import de.hybris.platform.core.model.product.ProductModel;
 import de.hybris.platform.servicelayer.search.FlexibleSearchService;
 import de.hybris.platform.servicelayer.search.SearchResult;
@@ -25,6 +26,9 @@ public class DefaultProductDetailRafalDao implements ProductDetailRafalDao
 	@Resource
 	private FlexibleSearchService flexibleSearchService;
 
+	@Resource
+	CatalogVersionService catalogVersionService;
+
 	/*
 	 * (non-Javadoc)
 	 *
@@ -33,7 +37,7 @@ public class DefaultProductDetailRafalDao implements ProductDetailRafalDao
 	@Override
 	public List<ProductModel> getProductDetails()
 	{
-
+		catalogVersionService.setSessionCatalogVersion("hybrisProductCatalog", "Online");
 		final String queryString = new String("select {PK} from {Product}");
 		final SearchResult<ProductModel> sr = getFlexibleSearchService().search(queryString);
 		return sr.getResult();
@@ -48,9 +52,10 @@ public class DefaultProductDetailRafalDao implements ProductDetailRafalDao
 	}
 
 	/**
-	 * @param flexibleSearchService the flexibleSearchService to set
+	 * @param flexibleSearchService
+	 *           the flexibleSearchService to set
 	 */
-	public void setFlexibleSearchService(FlexibleSearchService flexibleSearchService)
+	public void setFlexibleSearchService(final FlexibleSearchService flexibleSearchService)
 	{
 		this.flexibleSearchService = flexibleSearchService;
 	}
