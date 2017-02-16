@@ -92,4 +92,24 @@
 			<property name="productDetailDao" ref="productDetailDao"></property>
 		</bean>	
 			
+			
+			
+		<bean id="rafalProductPopulator" class="org.training.RafalProductPopulator"></bean>
+			
+		<!-- converter robimy deklaratywnie 
+		parentem jest zawsze abstractPopulatingConverter
+		targetClass - value wskazuje na nazwe zadeklarowana DTO w -bean.xml <bean class="org.training.RafalDataProduct">
+		ref bean - nazwa bean Populatora
+		-->
+		<bean id="rafalProductConverter" parent="abstractPopulatingConverter">
+			<property name="targetClass" value="org.training.RafalDataProduct"></property>
+			<property name="populators">
+				<list merge="true">
+					<ref bean="rafalProductPopulator"/>
+				</list>
+			</property>
+		</bean>	
+		
+		<bean id="defaultRafalProductFacade" class="org.training.imp.DefaultRafalProductFacade"></bean>
+			
 </beans>

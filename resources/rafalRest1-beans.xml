@@ -25,5 +25,9 @@
 		<property name="flag" type="boolean"/>
 	</bean>
 	-->
-
+	
+	<bean class="org.training.RafalDataProduct">
+		<property name="productName" type="String"></property>
+		<property name="productDescription" type="String"></property>
+	</bean>
 </beans>

@@ -3,8 +3,7 @@
  */
 package org.training;
 
-import de.hybris.platform.core.model.product.ProductModel;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -26,12 +25,16 @@ public class RafalProductController
 {
 
 	@Resource
-	private ProductDetailRafalService rafalProductDetailService;
+	private RafalProductFacade defaultRafalProductFacade;
 
 	@RequestMapping(value = "/rafal/products", method = RequestMethod.GET)
-	public @ResponseBody List<ProductModel> showProducts()
+	public @ResponseBody List<RafalDataProduct> showProducts()
 	{
-		return rafalProductDetailService.getProductDetails();
+
+		final ArrayList<RafalDataProduct> lista = new ArrayList<RafalDataProduct>();
+		lista.add(defaultRafalProductFacade.getProducts());
+		//to_do tmp
+		return (lista);
 	}
 
 }
