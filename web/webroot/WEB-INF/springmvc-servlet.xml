@@ -13,6 +13,11 @@
   <mvc:annotation-driven />
  
     <context:component-scan base-package="org.training;org.training.config " />
+    
+    <mvc:resources mapping="swagger-ui.html"
+    location="classpath:/META-INF/resources/" />
+<mvc:resources mapping="/webjars/**" 
+    location="classpath:/META-INF/resources/webjars/" />
  
 
  
