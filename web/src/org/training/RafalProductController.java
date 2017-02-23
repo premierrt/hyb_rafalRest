@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 
 /**
  * @author tyszewr
@@ -27,6 +31,11 @@ public class RafalProductController
 	@Resource
 	private RafalProductFacade defaultRafalProductFacade;
 
+	@ApiOperation(value = "Returns product details", notes = "Returns a complete list of products", response = RafalDataProduct.class)
+	@ApiResponses(value =
+	{ @ApiResponse(code = 200, message = "Successful retrieval of user detail", response = RafalDataProduct.class),
+			@ApiResponse(code = 404, message = "User with given username does not exist"),
+			@ApiResponse(code = 500, message = "Internal server error") })
 	@RequestMapping(value = "/rafal/products", method = RequestMethod.GET)
 	public @ResponseBody List<RafalDataProduct> showProducts()
 	{
